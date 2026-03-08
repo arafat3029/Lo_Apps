@@ -39,9 +39,9 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <Link to="/"><a className="btn btn-ghost text-3xl font-bold bg-gradient-to-r from-[#632EE3] to-[#853fe7] bg-clip-text text-transparent">
+        <Link to="/"><p className="btn btn-ghost text-3xl font-bold bg-gradient-to-r from-[#632EE3] to-[#853fe7] bg-clip-text text-transparent">
             <img src="/logo.png" alt="" className="w-7" />
-            HERO.IO</a></Link>
+            HERO.IO</p></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -57,7 +57,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <button className="btn bg-gradient-to-r from-[#5a1ee7] to-[#9F62F2] p-6 text-white"> <FaGithub /><a href="https://github.com/arafat3029">Contribute</a></button>
+        <button className="btn bg-gradient-to-r from-[#5a1ee7] to-[#9F62F2] p-6 text-white"> <FaGithub /><a href="https://github.com/arafat3029" target="_blank" rel="noopener noreferrer">Contribute</a></button>
       </div>
     </div>
   );
