@@ -1,0 +1,290 @@
+[
+  {
+    "image": "https://media.licdn.com/dms/image/v2/C4E0BAQFqbZLvYGtJcA/company-logo_200_200/company-logo_200_200/0/1630567774597/zen_labs_data_logo?e=2147483647&v=beta&t=axnktFOAJzsFgUrix3oPIZCPQqLfRoJxINaShG07VuE",
+    "title": "FocusNote – Ultimate Task Organizer & Focus Booster",
+    "companyName": "ZenLabs",
+    "id": 1,
+    "description": "A productivity app to organize tasks and stay focused.",
+    "size": 42,
+    "reviews": 15200,
+    "ratingAvg": 4.6,
+    "downloads": 1200000,
+    "ratings": [
+      { "name": "1 star", "count": 500 },
+      { "name": "2 star", "count": 850 },
+      { "name": "3 star", "count": 1500 },
+      { "name": "4 star", "count": 4200 },
+      { "name": "5 star", "count": 8200 }
+    ]
+  },
+  {
+    "image": "https://insidescientific.com/wp-content/uploads/2022/02/HealthCore.jpg",
+    "title": "FitTrack Pro – Advanced Fitness, Workout & Health Tracker",
+    "companyName": "HealthCore Ltd",
+    "id": 2,
+    "description": "Track workouts, calories, and fitness goals easily.",
+    "size": 55,
+    "reviews": 9800,
+    "ratingAvg": 4.3,
+    "downloads": 890000,
+    "ratings": [
+      { "name": "1 star", "count": 300 },
+      { "name": "2 star", "count": 700 },
+      { "name": "3 star", "count": 1200 },
+      { "name": "4 star", "count": 3500 },
+      { "name": "5 star", "count": 4100 }
+    ]
+  },
+  {
+    "image": "https://play-lh.googleusercontent.com/jy3kw1UyaFpHbnIguzkdtb-mjKZjEzULGEQsUEbIdTDDRYAR2TUzB0Wj6NY2InAyJTm87ZXPRcWsO0qyH4Ps=w240-h480-rw",
+    "title": "SnapEdit – AI Powered Professional Photo Editing Studio",
+    "companyName": "PixelCraft",
+    "id": 3,
+    "description": "Powerful mobile photo editor with AI tools.",
+    "size": 67,
+    "reviews": 20300,
+    "ratingAvg": 4.7,
+    "downloads": 2100000,
+    "ratings": [
+      { "name": "1 star", "count": 900 },
+      { "name": "2 star", "count": 1100 },
+      { "name": "3 star", "count": 1800 },
+      { "name": "4 star", "count": 6000 },
+      { "name": "5 star", "count": 10500 }
+    ]
+  },
+  {
+    "image": "https://img.freepik.com/premium-vector/audio-wave-logo_114333-141.jpg?w=1480",
+    "title": "MusicFlow – Premium Music Streaming With Smart Playlists",
+    "companyName": "AudioWave",
+    "id": 4,
+    "description": "Stream high-quality music ad-free with personalized playlists.",
+    "size": 85,
+    "reviews": 18000,
+    "ratingAvg": 4.5,
+    "downloads": 3300000,
+    "ratings": [
+      { "name": "1 star", "count": 600 },
+      { "name": "2 star", "count": 900 },
+      { "name": "3 star", "count": 2200 },
+      { "name": "4 star", "count": 5200 },
+      { "name": "5 star", "count": 9100 }
+    ]
+  },
+  {
+    "image": "https://play-lh.googleusercontent.com/YkKRhY9EvOJMDQCKOrAR8cqOEM6E6bmTu8BuVnAbLVgg3Yj_woBfWT_Qp7WOutdTGQ=w240-h480-rw",
+    "title": "RideOn – Fast & Reliable Ride Booking Service Anytime",
+    "companyName": "MoveFast",
+    "id": 5,
+    "description": "Book rides instantly with trusted drivers anytime.",
+    "size": 48,
+    "reviews": 12500,
+    "ratingAvg": 4.1,
+    "downloads": 2500000,
+    "ratings": [
+      { "name": "1 star", "count": 900 },
+      { "name": "2 star", "count": 1400 },
+      { "name": "3 star", "count": 2100 },
+      { "name": "4 star", "count": 3800 },
+      { "name": "5 star", "count": 4300 }
+    ]
+  },
+  {
+    "image": "https://play-lh.googleusercontent.com/XDXUlkOjoLnVFKq1THcp31i-iGF4vI4X6Y_8ymfdVSKoTta_d-YLbkaxJ1F57x1qXNs=w240-h480-rw",
+    "title": "LearnHub – Complete Learning Platform for Modern Skills",
+    "companyName": "EduPro",
+    "id": 6,
+    "description": "Learn coding, design, marketing and more with short lessons.",
+    "size": 60,
+    "reviews": 17500,
+    "ratingAvg": 4.8,
+    "downloads": 1400000,
+    "ratings": [
+      { "name": "1 star", "count": 300 },
+      { "name": "2 star", "count": 450 },
+      { "name": "3 star", "count": 1000 },
+      { "name": "4 star", "count": 4000 },
+      { "name": "5 star", "count": 11800 }
+    ]
+  },
+  {
+    "image": "https://cdn.dribbble.com/userupload/25623478/file/original-a7df358ef5967b01cd474517fb038eef.jpg?resize=752x&vertical=center",
+    "title": "TravelGo – Smart Flight, Hotel & Travel Deal Finder",
+    "companyName": "FlyHigh",
+    "id": 7,
+    "description": "Find cheap flights, hotels and travel packages.",
+    "size": 52,
+    "reviews": 8900,
+    "ratingAvg": 4.2,
+    "downloads": 950000,
+    "ratings": [
+      { "name": "1 star", "count": 400 },
+      { "name": "2 star", "count": 800 },
+      { "name": "3 star", "count": 1600 },
+      { "name": "4 star", "count": 3000 },
+      { "name": "5 star", "count": 3100 }
+    ]
+  },
+  {
+    "image": "https://play-lh.googleusercontent.com/-Ctnu67nb4HTywfsvkk5mjdU1fHfY73PWsG2e8c6oT7dHn72Ooh0oRJEtwaI0OugFQhG=w3840-h2160-rw",
+    "title": "GameBoost – Mobile Game Optimizer for Ultra Performance",
+    "companyName": "TechCore",
+    "id": 8,
+    "description": "Optimize your phone for smooth gaming performance.",
+    "size": 39,
+    "reviews": 22000,
+    "ratingAvg": 4.4,
+    "downloads": 4100000,
+    "ratings": [
+      { "name": "1 star", "count": 1500 },
+      { "name": "2 star", "count": 1800 },
+      { "name": "3 star", "count": 2600 },
+      { "name": "4 star", "count": 5400 },
+      { "name": "5 star", "count": 10700 }
+    ]
+  },
+  {
+    "image": "https://play-lh.googleusercontent.com/6MRIJ_qSweRfMCemFk7SIbFr3xEDl08pyoxbAw2NkEKNgAJsOSZw6ZH4xg6Z-nVIWoY=s48-rw",
+    "title": "QuickBudget – Simple Expense Manager & Budget Planner",
+    "companyName": "FinMate",
+    "id": 9,
+    "description": "Track expenses and manage monthly budgets easily.",
+    "size": 28,
+    "reviews": 7700,
+    "ratingAvg": 4.0,
+    "downloads": 680000,
+    "ratings": [
+      { "name": "1 star", "count": 700 },
+      { "name": "2 star", "count": 900 },
+      { "name": "3 star", "count": 2000 },
+      { "name": "4 star", "count": 2100 },
+      { "name": "5 star", "count": 2000 }
+    ]
+  },
+  {
+    "image": "https://file.cdn.firstory.me/Avatar/cjzdudbtbbqbj075892bbtlo5/1607924598621.jpg",
+    "title": "BlockTrend – Real-Time Crypto Price Tracker & Alerts",
+    "companyName": "BlockTrend",
+    "id": 10,
+    "description": "Track live crypto prices, charts, and price alerts.",
+    "size": 51,
+    "reviews": 15400,
+    "ratingAvg": 4.6,
+    "downloads": 1300000,
+    "ratings": [
+      { "name": "1 star", "count": 600 },
+      { "name": "2 star", "count": 750 },
+      { "name": "3 star", "count": 1400 },
+      { "name": "4 star", "count": 4800 },
+      { "name": "5 star", "count": 6850 }
+    ]
+  },
+  {
+    "image": "https://play-lh.googleusercontent.com/jNUgDOU0J0GgLSV1k6fMXhm7HkC-E5X4ciAjbAV4CUkEchHucJ0fNJzZSFKbcq8vznY=w240-h480-rw",
+    "title": "MindRelax – Meditation, Sleep & Stress Relief App",
+    "companyName": "CalmSpace",
+    "id": 11,
+    "description": "Meditation and sleep sounds to reduce stress.",
+    "size": 46,
+    "reviews": 13400,
+    "ratingAvg": 4.7,
+    "downloads": 900000,
+    "ratings": [
+      { "name": "1 star", "count": 400 },
+      { "name": "2 star", "count": 650 },
+      { "name": "3 star", "count": 1100 },
+      { "name": "4 star", "count": 3900 },
+      { "name": "5 star", "count": 7350 }
+    ]
+  },
+  {
+    "image": "https://media.licdn.com/dms/image/v2/D4D0BAQFqoYqLN3vHfg/company-logo_200_200/company-logo_200_200/0/1731313321706?e=2147483647&v=beta&t=LjQdQWs2a8_XjIhibjSF5kjnNzxlGIwXjvGq6y1VlYY",
+    "title": "SecureVault – Secure Password, File & Notes Manager",
+    "companyName": "SafeTech",
+    "id": 12,
+    "description": "Store passwords, notes and files securely.",
+    "size": 33,
+    "reviews": 10100,
+    "ratingAvg": 4.5,
+    "downloads": 720000,
+    "ratings": [
+      { "name": "1 star", "count": 350 },
+      { "name": "2 star", "count": 600 },
+      { "name": "3 star", "count": 1400 },
+      { "name": "4 star", "count": 3200 },
+      { "name": "5 star", "count": 4550 }
+    ]
+  },
+  {
+    "image": "https://www.brandbucket.com/logos/443448/large_megakart.webp",
+    "title": "ShopEasy – Online Shopping App With Fast Delivery",
+    "companyName": "MegaKart",
+    "id": 13,
+    "description": "Online shopping app with fast delivery and coupons.",
+    "size": 78,
+    "reviews": 31000,
+    "ratingAvg": 4.3,
+    "downloads": 5500000,
+    "ratings": [
+      { "name": "1 star", "count": 2200 },
+      { "name": "2 star", "count": 3000 },
+      { "name": "3 star", "count": 5000 },
+      { "name": "4 star", "count": 11000 },
+      { "name": "5 star", "count": 9800 }
+    ]
+  },
+  {
+    "image": "https://play-lh.googleusercontent.com/lJb8QkrFdOY63MOZKgVEJqgbbV0H6CkYAUweiQKL1cqjR2NmaoYepEd4y-EtQZf446Q=w240-h480-rw",
+    "title": "FoodieBox – Fast Food Delivery From Nearby Restaurants",
+    "companyName": "FreshEats",
+    "id": 14,
+    "description": "Order food from your favorite restaurants with fast delivery.",
+    "size": 63,
+    "reviews": 28000,
+    "ratingAvg": 4.4,
+    "downloads": 4900000,
+    "ratings": [
+      { "name": "1 star", "count": 1900 },
+      { "name": "2 star", "count": 2600 },
+      { "name": "3 star", "count": 4400 },
+      { "name": "4 star", "count": 9000 },
+      { "name": "5 star", "count": 10100 }
+    ]
+  },
+  {
+    "image": "https://yt3.googleusercontent.com/Y-4rJwW_8AIm_hYJuVsEZmlNNw96DxGKnfCvn27-ImfsG6m5V7zFJFcvXvgMRaxEMlPAGwhiJA=s900-c-k-c0x00ffffff-no-rj",
+    "title": "ChatBuddy AI – Smart AI Chat & Writing Assistant",
+    "companyName": "AruTech",
+    "id": 15,
+    "description": "Your everyday AI assistant for writing, chatting, and tasks.",
+    "size": 70,
+    "reviews": 45000,
+    "ratingAvg": 4.9,
+    "downloads": 8800000,
+    "ratings": [
+      { "name": "1 star", "count": 1700 },
+      { "name": "2 star", "count": 2100 },
+      { "name": "3 star", "count": 3500 },
+      { "name": "4 star", "count": 9500 },
+      { "name": "5 star", "count": 28200 }
+    ]
+  },
+  {
+    "image": "http://googleusercontent.com/profile/picture/8",
+    "title": "ZenTasker – Minimalist Daily Planner & Habit Tracker",
+    "companyName": "FlowState",
+    "id": 16,
+    "description": "Simplify your day with a clean interface for habits and tasks.",
+    "size": 35,
+    "reviews": 6200,
+    "ratingAvg": 4.5,
+    "downloads": 550000,
+    "ratings": [
+      { "name": "1 star", "count": 200 },
+      { "name": "2 star", "count": 350 },
+      { "name": "3 star", "count": 800 },
+      { "name": "4 star", "count": 1850 },
+      { "name": "5 star", "count": 3000 }
+    ]
+  }
+]

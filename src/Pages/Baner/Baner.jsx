@@ -12,8 +12,9 @@ const Baner = () => {
       </h1>
 
       <div className=" mt-4">
-        <p className='w-4xl items-center justify-center text-[#627382] mt-4'>
-          At HERO.IO, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting. Our goal is to turn your ideas into digital experiences that truly make an impact.
+        <p className=' items-center justify-center text-[#627382] mt-4'>
+          At HERO.IO, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting. <br />
+          Our goal is to turn your ideas into digital experiences that truly make an impact.
         </p>
       </div>
       <div className='mt-10'>
