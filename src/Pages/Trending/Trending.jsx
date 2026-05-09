@@ -22,7 +22,7 @@ const Trending = () => {
 
       <div className="flex justify-center m-10">
         <button className="bg-gradient-to-r from-[#632EE3] to-[#9F62F2] hover:bg-gradient-to-r hover:from-[#9F62F2] hover:to-[#632EE3] text-white font-bold py-2 px-4 rounded">
-          <Link to= "/AllApps">Show All</Link>
+          <Link to="/AllApps">Show All</Link>
         </button>
       </div>
     </div>
