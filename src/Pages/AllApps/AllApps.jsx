@@ -6,6 +6,7 @@ const AllApps = () => {
     fetch("App.json")
       .then((res) => res.json())
       .then((data) => setAllapps(data));
+      
   return (
     <div>
 

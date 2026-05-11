@@ -28,6 +28,17 @@ const addToStoreDB = (id) => {
   }
 };
 
+const removeFromStoreDB = (id) => {
+  const storedAppsData = getStoredApps();
 
+  const remainingApps = storedAppsData.filter(
+    (appId) => parseInt(appId) !== parseInt(id)
+  );
 
-export {addToStoreDB, getStoredApps };
+  localStorage.setItem(
+    "installedApps",
+    JSON.stringify(remainingApps)
+  );
+};
+
+export {addToStoreDB, getStoredApps, removeFromStoreDB };

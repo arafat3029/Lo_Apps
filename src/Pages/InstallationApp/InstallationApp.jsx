@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
-import { getStoredApps, removeFromStoreDB } from "../../utility/addToDB";
+import { getStoredApps, removeFromStoreDB  } from "../../utility/addToDB";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 
@@ -8,7 +8,7 @@ const InstallationApp = () => {
   const [ilstalledAppsData, setInstalledAppsData] = useState([]);
 
   const data = useLoaderData();
-  console.log(data);
+  // console.log(data);
 
   useEffect(() => {
     const installedApps = getStoredApps();
@@ -19,11 +19,14 @@ const InstallationApp = () => {
     setInstalledAppsData(storedAppsData);
   }, [data]);
 
-  const handelUninstall = (id) => {
+  const handelRemoveApp = (id) => {
     removeFromStoreDB(id);
-    const remainingApps = ilstalledAppsData.filter((app) => app.id !== id);
-    setInstalledAppsData(remainingApps);
-  };
+
+    const updatedInstalledApps = ilstalledAppsData.filter(
+      (app) => app.id !== id
+    );
+    setInstalledAppsData(updatedInstalledApps);
+  }
 
   return (
     <div className=" bg-[#f5f5f5]">
@@ -73,7 +76,7 @@ const InstallationApp = () => {
               </div>
 
               <div>
-                <button onClick={() => handelUninstall(app.id)} className="btn btn-primary">Uninstall</button>
+                <button onClick={() => handelRemoveApp(app.id)} className="btn btn-primary">Uninstall</button>
               </div>
             </div>
           ))}
