@@ -1,6 +1,10 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router";
+import { BiHome } from "react-icons/bi";
+import { FaAppStore } from "react-icons/fa";
+import { MdOutlineInstallDesktop } from "react-icons/md";
+
 
 const Navbar = () => {
   return (
@@ -29,13 +33,13 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/"> <BiHome /> Home</Link>
             </li>
             <li>
-              <Link to="/AllApps">Apps</Link>
+              <Link to="/AllApps"> <FaAppStore /> Apps</Link>
             </li>
             <li>
-                <Link>Installation</Link>
+                <Link to="/InstallationApp"> <MdOutlineInstallDesktop /> Installation</Link>
             </li>
           </ul>
         </div>
@@ -46,13 +50,13 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/"> <BiHome /> Home</Link>
           </li>
           <li>
-            <Link to="/AllApps">Apps</Link>
+            <Link to="/AllApps"> <FaAppStore /> Apps</Link>
           </li>
           <li>
-            <Link>Installation</Link>
+            <Link to="/InstallationApp"> <MdOutlineInstallDesktop /> Installation</Link>
           </li>
         </ul>
       </div>

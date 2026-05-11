@@ -23,7 +23,7 @@ const AllApps = () => {
         </div>
 
         <div>
-          <label className="input">
+          <label className="input" >
             <svg
               className="h-[1em] opacity-50"
               xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +40,7 @@ const AllApps = () => {
                 <path d="m21 21-4.3-4.3"></path>
               </g>
             </svg>
-            <input type="search" required placeholder="search Apps" />
+            <input type="search" required placeholder="Search Apps" />
           </label>
         </div>
 

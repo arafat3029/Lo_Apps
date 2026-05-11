@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaCloudDownloadAlt } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import { Link } from "react-router";
 
 const Trendings = () => {
@@ -27,7 +28,7 @@ const Trendings = () => {
                   <FaCloudDownloadAlt /> {app.downloads}
                 </div>
                 <div className="text-[#ff8812] bg-[#fff0e0] pl-5 pr-5 rounded-2xl flex items-center gap-2">
-                  <FaCloudDownloadAlt /> {app.ratingAvg}
+                  <FaStar /> {app.ratingAvg}
                 </div>
               </div>
             </div>
