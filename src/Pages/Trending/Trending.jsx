@@ -7,13 +7,13 @@ import { Link } from "react-router";
 const Trending = () => {
   return (
     <div className="bg-white">
-      <div className="flex flex-col items-center justify-center p-4 text-center m-8 bg-white">
+      <div className="flex flex-col items-center justify-center p-4 text-center bg-white">
         <h2 className="font-bold text-3xl flex ">
-          <p className="text-black">Trending Apps .</p>
-          <FaArrowTrendUp />
+          <p className="text-black text-2xl">Best Selling Products </p>
+          {/* <FaArrowTrendUp /> */}
         </h2>
         <p className="font-light mt-4 text-black">
-          Explore All Trending Apps on the Market developed by us
+          Explore All Trending Products
         </p>
       </div>
 
