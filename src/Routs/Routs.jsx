@@ -7,6 +7,7 @@ import Home from '../Pages/Home/Home';
 import AllApps from '../Pages/AllApps/AllApps';
 import AppDetails from '../Pages/AppDetails/AppDetails';
 import InstallationApp from '../Pages/InstallationApp/InstallationApp';
+import Contact from '../Pages/Contact/Contact';
 
 export const router = createBrowserRouter([
   {
@@ -25,14 +26,18 @@ export const router = createBrowserRouter([
       },
       {
         path: '/AppDetails/:id',
-        loader: ()=>fetch('App.json'),
+        loader: ()=>fetch('/App.json'),
         Component: AppDetails
       },
       {
         path: '/InstallationApp',
-        loader: ()=>fetch('App.json'),
+        loader: ()=>fetch('/App.json'),
         Component: InstallationApp
       },
+      {
+        path: '/contact',
+        Component: Contact
+      }
     ]
   },
 ]);

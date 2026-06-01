@@ -3,8 +3,17 @@ import { useLoaderData, useParams } from "react-router";
 import { GoDownload } from "react-icons/go";
 import { FaStar } from "react-icons/fa";
 import { FcVoicePresentation } from "react-icons/fc";
-import { BarChart, CartesianGrid, Legend, Tooltip, XAxis, Bar, YAxis } from "recharts";
+import {
+  BarChart,
+  CartesianGrid,
+  Legend,
+  Tooltip,
+  XAxis,
+  Bar,
+  YAxis,
+} from "recharts";
 import { addToStoreDB } from "../../utility/addToDB";
+import { MdOutlineShoppingCart } from "react-icons/md";
 
 
 const AppDetails = () => {
@@ -12,88 +21,118 @@ const AppDetails = () => {
   const appId = parseInt(id);
   const data = useLoaderData();
   const appDetails = data.find((app) => app.id === appId);
-  const { companyName, image, title, downloads, ratingAvg, reviews, size,  } = appDetails;
+  const { companyName, image, title, downloads, ratingAvg, reviews, price } =
+    appDetails;
   const ratings = appDetails.ratings;
 
-
-  const handleInstall = id => {
-
+  const handleInstall = (id) => {
     addToStoreDB(id);
-
-  }
+  };
 
   return (
-    <div>
+    <div className="px-3 sm:px-6">
       <div className="max-w-7xl mx-auto">
+        {/* TOP SECTION */}
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-10">
+          {/* IMAGE */}
+          <div className="flex justify-center">
+            <img
+              src={image}
+              alt={title}
+              className="w-40 h-40 sm:w-56 sm:h-56 lg:w-64 lg:h-64 object-contain"
+            />
+          </div>
 
-        <div>
-            
-            <div className="flex items-center justify-center ">
+          {/* DETAILS */}
+          <div className="w-full">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center lg:text-left">
+              {title}
+            </h2>
 
-                <div>
-                    <figure><img src={image} alt={title} className="w-64 h-64" /></figure>
-                </div>
-                
-                
-                <div className="card-body">
-                    <h2 className="card-title font-bold text-2xl">{title}</h2>
-                    <p className="text-[#627382] pb-2">Developed by <span className="bg-gradient-to-r from-[#632EE3] via-[#7D45EB] to-[#9F62F2] text-transparent bg-clip-text font-semibold">{companyName}</span></p>
+            <p className="text-[#627382] pb-2 text-center lg:text-left text-sm sm:text-base">
+              Developed by{" "}
+              <span className="bg-gradient-to-r from-[#632EE3] via-[#7D45EB] to-[#9F62F2] text-transparent bg-clip-text font-semibold">
+                {companyName}
+              </span>
+            </p>
 
-                    <div className="border-t-1 border-solid text-[#c4c9ce] p-2"></div>
+            <div className="border-t border-gray-200 my-3"></div>
 
-                    <div className="flex items-center justify-between">
-                        <div className="flex flex-col items-center gap-2 justify-center">
-                            <span ><GoDownload  className="text-[#0a8f15]" size={35}/></span>
-                            <p className="text-[#001931] font-semibold">Downloads: </p>
-                            <span className="font-bold text-2xl">{downloads}</span>
-                        </div>
-                        <div className="flex flex-col items-center gap-2 justify-center">
-                            <span><FaStar className="text-[#FF8811]" size={35}/></span>
-                            <p className="text-[#001931] font-semibold">Average Ratings: </p>
-                            <span className="font-bold text-2xl">{ratingAvg}</span>
-                        </div>
-                        <div className="flex flex-col items-center gap-2 justify-center">
-                            <span><FcVoicePresentation className="" size={35}/></span>
-                            <p className="text-[#001931] font-semibold">Reviews: </p>
-                            <span className="font-bold text-2xl">{reviews}</span>
+            {/* STATS */}
+            <div className="grid grid-cols-3 gap-3 sm:gap-6 text-center">
+              <div className="flex flex-col items-center gap-1">
+                <GoDownload className="text-[#0a8f15]" size={28} />
+                <p className="text-sm font-semibold">Downloads</p>
+                <span className="font-bold text-lg sm:text-xl">
+                  {downloads}
+                </span>
+              </div>
 
-                        </div>
-                    </div>
+              <div className="flex flex-col items-center gap-1">
+                <FaStar className="text-[#FF8811]" size={28} />
+                <p className="text-sm font-semibold">Ratings</p>
+                <span className="font-bold text-lg sm:text-xl">
+                  {ratingAvg}
+                </span>
+              </div>
 
-                    <button onClick={() => handleInstall(id)} className="btn btn-primary bg-[#00D390] border-none max-w-1/5 mt-2">Install Now ({size} MB)</button>
-
-                </div>
-
+              <div className="flex flex-col items-center gap-1">
+                <FcVoicePresentation size={28} />
+                <p className="text-sm font-semibold">Reviews</p>
+                <span className="font-bold text-lg sm:text-xl">{reviews}</span>
+              </div>
             </div>
-            
 
-            <div className="border-t-1 border-solid text-[#c4c9ce] p-2 mt-2.5"></div>
+            {/* BUTTON */}
+            <div className="mt-2 flex flex-col lg:flex-row gap-10 justify-center lg:justify-start">
+              <button
+                onClick={() => handleInstall(id)}
+                className="btn btn-outline btn-accent w-full sm:w-auto"
+              >
+               <MdOutlineShoppingCart />  Add To Cart
+              </button>
 
-            <div className="mb-5">
-                <p className="font-bold">Ratings</p>
+              <button
+                onClick={() => handleInstall(id)}
+                className="btn btn-primary bg-[#00D390] border-none w-full sm:w-auto"
+              >
+              <MdOutlineShoppingCart />  Buy Now ({price} Tk)
+              </button>
             </div>
+          </div>
 
-
-
-            <div className="flex items-center justify-normal mt-4">
-                <BarChart width={600} height={300} data={ratings}>
-                    <CartesianGrid stroke="#ccc" strokeDasharray="5 5"></CartesianGrid>
-                    <XAxis dataKey="name" stroke="#8884d8"></XAxis>
-                    <YAxis stroke="#8884d8"></YAxis>
-                    <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc'}}></Tooltip>
-                    <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }}></Legend>
-                    <CartesianGrid stroke="#ccc" strokeDasharray="5 5"></CartesianGrid>
-                    <Bar dataKey="count" fill="#8884d8" barSize={30}></Bar>
-                </BarChart>
-            </div>
-            <div className="border-t-1 border-solid text-[#c4c9ce] p-2 mt-2.5"></div>
-
-            <p className="font-bold text-2xl">Description</p>
-            <p className="mt-5 mb-14">{appDetails.description}</p>
-            
-
+          
         </div>
 
+        {/* DIVIDER */}
+        <div className="border-t border-gray-200 my-6"></div>
+
+        {/* RATING CHART */}
+        <p className="font-bold text-xl sm:text-2xl mb-3">Ratings</p>
+
+        <div className="w-full overflow-x-auto">
+          <BarChart
+            width={window.innerWidth < 640 ? 320 : 600}
+            height={300}
+            data={ratings}
+          >
+            <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+            <XAxis dataKey="name" stroke="#8884d8" />
+            <YAxis stroke="#8884d8" />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="count" fill="#8884d8" barSize={30} />
+          </BarChart>
+        </div>
+
+        {/* DIVIDER */}
+        <div className="border-t border-gray-200 my-6"></div>
+
+        {/* DESCRIPTION */}
+        <p className="font-bold text-xl sm:text-2xl">Description</p>
+        <p className="mt-4 mb-10 text-sm sm:text-base text-gray-700">
+          {appDetails.description}
+        </p>
       </div>
     </div>
   );

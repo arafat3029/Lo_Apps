@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
-import { getStoredApps, removeFromStoreDB  } from "../../utility/addToDB";
+import { getStoredApps, removeFromStoreDB } from "../../utility/addToDB";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 
@@ -23,43 +23,45 @@ const InstallationApp = () => {
     removeFromStoreDB(id);
 
     const updatedInstalledApps = ilstalledAppsData.filter(
-      (app) => app.id !== id
+      (app) => app.id !== id,
     );
     setInstalledAppsData(updatedInstalledApps);
-  }
+  };
 
   return (
-    <div className=" bg-[#f5f5f5]">
+    <div className="bg-[#f5f5f5] px-3 sm:px-6">
       <div>
-        <h1 className="text-3xl font-bold text-center pt-10">
+        <h1 className="text-2xl sm:text-3xl font-bold text-center pt-10">
           Your Installed Apps
         </h1>
-        <p className="text-center text-[#627382] mt-4 mb-7">
+        <p className="text-center text-[#627382] mt-3 sm:mt-4 mb-6 sm:mb-7 text-sm sm:text-base">
           Explore All Trending Apps on the Market developed by us
         </p>
       </div>
-      <div className="flex flex-col items-baseline max-w-7xl mx-auto">
-        <div className="mt-9">
-          <p className="mb-4 font-bold text-black text-2xl ">
-            {ilstalledAppsData.length} Apps Found{" "}
+
+      <div className="flex flex-col items-center max-w-7xl mx-auto">
+        <div className="mt-6 sm:mt-9 w-full">
+          <p className="mb-4 font-bold text-black text-xl sm:text-2xl">
+            {ilstalledAppsData.length} Apps Found
           </p>
         </div>
 
-        <div className="flex flex-col gap-6 w-full">
+        <div className="flex flex-col gap-4 sm:gap-6 w-full">
           {ilstalledAppsData.map((app) => (
             <div
               key={app.id}
-              className="flex items-center justify-between bg-[#ffffff] p-4 rounded-lg shadow-sm w-full"
+              className="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-[#ffffff] p-4 rounded-lg shadow-sm w-full gap-4"
             >
-              <div className="flex items-center gap-6 justify-center pt-6 ">
-                <div>
-                  <img className="w-24" src={app.image} alt={app.name} />
-                </div>
+              {/* LEFT SIDE */}
+              <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6">
+                <img className="w-20 sm:w-24" src={app.image} alt={app.name} />
 
-                <div>
-                  <h2>{app.title}</h2>
+                <div className="text-center sm:text-left">
+                  <h2 className="font-semibold text-base sm:text-lg">
+                    {app.title}
+                  </h2>
 
-                  <div className="flex items-center gap-4 mt-2">
+                  <div className="flex flex-wrap justify-center sm:justify-start items-center gap-3 sm:gap-4 mt-2 text-sm">
                     <span className="text-[#00D390] flex items-center gap-1">
                       <FaCloudDownloadAlt />
                       {app.downloads}
@@ -75,8 +77,14 @@ const InstallationApp = () => {
                 </div>
               </div>
 
-              <div>
-                <button onClick={() => handelRemoveApp(app.id)} className="btn btn-primary">Uninstall</button>
+              {/* BUTTON */}
+              <div className="w-full sm:w-auto flex justify-center sm:justify-end">
+                <button
+                  onClick={() => handelRemoveApp(app.id)}
+                  className="btn btn-primary w-full sm:w-auto"
+                >
+                  Uninstall
+                </button>
               </div>
             </div>
           ))}
