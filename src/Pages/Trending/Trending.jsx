@@ -20,11 +20,25 @@ const Trending = () => {
 
       <Trendings></Trendings>
 
-      <div className="flex justify-center pt-10 pb-5 ">
-        <button className="bg-gradient-to-r from-[#632EE3] to-[#9F62F2] hover:bg-gradient-to-r hover:from-[#9F62F2] hover:to-[#632EE3] text-white font-bold py-2 px-4 rounded">
-          <Link to="/AllApps">Show All</Link>
-        </button>
-      </div>
+      <button className="group relative px-8 py-3 bg-gradient-to-r from-[#632EE3] to-[#9F62F2] hover:from-[#5122c4] hover:to-[#8c4ee0] text-white font-semibold rounded-xl shadow-lg hover:shadow-[0_0_25px_rgba(159,98,242,0.5)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 flex items-center gap-2">
+      
+      {/* Pulse Effect Glow in Background */}
+      <span className="absolute inset-0 rounded-xl bg-[#9F62F2]/30 blur-md opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-500 -z-10" />
+
+      <span>Show All</span>
+
+      {/* Animated Arrow Icon */}
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        className="h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" 
+        fill="none" 
+        viewBox="0 0 24 24" 
+        stroke="currentColor" 
+        strokeWidth="2.5"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </button>
       <Footer></Footer>
     </div>
   );

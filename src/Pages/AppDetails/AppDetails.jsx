@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData, useParams } from "react-router";
+import { useLoaderData, useParams, useNavigate } from "react-router"; // useNavigate যুক্ত করা হয়েছে
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { addToStoreDB } from "../../utility/addToDB";
 import { TbMessageChatbot } from "react-icons/tb";
@@ -9,60 +9,98 @@ import { TiStarHalfOutline } from "react-icons/ti";
 const AppDetails = () => {
   const { id } = useParams();
   const appId = parseInt(id);
+  const navigate = useNavigate(); // নেভিগেশন ইনিশিয়ালাইজ করা হয়েছে
 
   const data = useLoaderData();
   const appDetails = data.find((app) => app.id === appId);
 
+  // ডিফল্ট ভ্যালুসহ অবজেক্ট ডিস্ট্রাকচারিং
   const {
     image,
     title,
-    price,
-    WithoutDiscountPrice,
+    price = "0",
+    WithoutDiscountPrice = "0",
     description,
-    ratingAvg,
+    ratingAvg = 0,
     Highlights,
-  } = appDetails;
+    quantity,
+  } = appDetails || {};
 
-  const handleInstall = (id) => {
-    addToStoreDB(id);
+  const handleInstall = (targetId) => {
+    addToStoreDB(targetId);
   };
 
-  const discountPercent = Math.round(
-    ((WithoutDiscountPrice.replace(/,/g, "") - price.replace(/,/g, "")) /
-      WithoutDiscountPrice.replace(/,/g, "")) *
-      100,
-  );
+  // Sold Out চেক করার লজিক (নাম্বার, স্ট্রিং বা আনডিফাইন্ড হ্যান্ডেল করবে)
+  const isSoldOut = quantity === 0 || quantity === "0" || !quantity;
+
+  // ডিসকাউন্ট পার্সেন্টেজ হিসাব করার সেফ লজিক
+  const origPrice = parseFloat(WithoutDiscountPrice?.replace(/,/g, "")) || 0;
+  const currPrice = parseFloat(price?.replace(/,/g, "")) || 0;
+  const hasDiscount = origPrice > currPrice;
+  const discountPercent = hasDiscount
+    ? Math.round(((origPrice - currPrice) / origPrice) * 100)
+    : 0;
+
+  if (!appDetails) {
+    return (
+      <div className="text-center py-20 text-gray-500">Product not found!</div>
+    );
+  }
 
   return (
-    <div className="bg-white pb-10 px-4 sm:px-6">
+    <div className="bg-white pb-20 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto py-4">
         <div className="flex flex-col lg:flex-row items-center gap-10">
           {/* Product Image */}
-          <div className="flex-1">
-  <img
-    src={image}
-    alt={title}
-    className="w-full h-64 max-w-lg mx-auto object-cover"
-  />
-</div>
+          <div className="flex-1 w-full">
+            <div className="relative max-w-lg mx-auto bg-slate-50 rounded-2xl overflow-hidden p-4 border border-gray-100 flex items-center justify-center">
+              <img
+                src={image}
+                alt={title}
+                className={`w-full h-64 sm:h-80 object-contain transition-all duration-300 ${isSoldOut ? "opacity-30 grayscale" : ""}`}
+              />
+              {/* Sold Out Overlay */}
+              {isSoldOut && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/5">
+                  <span className="bg-black/75 text-white text-sm font-bold uppercase tracking-wider px-4 py-2 rounded-xl shadow-md">
+                    Out of Stock
+                  </span>
+                </div>
+              )}
+            </div>
+          </div>
 
           {/* Product Details */}
-          <div className="flex-1">
+          <div className="flex-1 w-full">
             <div className="flex items-center gap-3 flex-wrap mt-5">
               <span className="text-3xl lg:text-4xl font-bold text-green-600">
                 ৳ {price}
               </span>
 
-              <span className="text-lg lg:text-xl text-gray-400 line-through">
-                ৳ {WithoutDiscountPrice}
-              </span>
+              {hasDiscount && (
+                <span className="text-lg lg:text-xl text-gray-400 line-through">
+                  ৳ {WithoutDiscountPrice}
+                </span>
+              )}
 
-              <span className="bg-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full">
-                -{discountPercent}%
-              </span>
+              {hasDiscount && !isSoldOut && (
+                <span className="bg-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full animate-pulse">
+                  -{discountPercent}%
+                </span>
+              )}
+
+              {isSoldOut && (
+                <span className="bg-gray-500 text-white text-sm font-semibold px-3 py-1 rounded-full">
+                  Sold Out
+                </span>
+              )}
             </div>
-            <h1 className="text-xl lg:text-4xl  text-black">{title}</h1>
 
+            <h1 className="text-xl lg:text-4xl font-bold text-black mt-2 leading-tight">
+              {title}
+            </h1>
+
+            {/* Ratings */}
             <div className="flex items-center gap-1 mt-4">
               <TiStarFullOutline className="text-amber-400 text-2xl" />
               <TiStarFullOutline className="text-amber-400 text-2xl" />
@@ -71,48 +109,66 @@ const AppDetails = () => {
               <TiStarHalfOutline className="text-amber-400 text-2xl" />
 
               <span className="ml-2 text-base font-semibold text-gray-800">
-                {ratingAvg.toFixed(1)}
+                {Number(ratingAvg).toFixed(1)}
               </span>
-
               <span className="text-sm text-gray-500">/ 5.0</span>
             </div>
 
+            {/* Highlights */}
             <div>
-              <h2 className="text-2xl font-bold text-black mt-6">
-                Highlights
-              </h2>
-              <p className="mt-4 text-gray-600 leading-relaxed">{Highlights}</p>
+              <h2 className="text-2xl font-bold text-black mt-6">Highlights</h2>
+              <p className="mt-2 text-gray-600 leading-relaxed">
+                {Highlights || "No highlights available."}
+              </p>
             </div>
           </div>
         </div>
 
         {/* Description Section */}
-        <div className="border-t border-gray-200 mt-6 pt-8">
+        <div className="border-t border-gray-200 mt-10 pt-8">
           <h2 className="text-2xl font-bold text-black mb-4">Description</h2>
-
-          <p className="text-gray-700 leading-relaxed">{description}</p>
+          <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+            {description || "No description available."}
+          </p>
         </div>
       </div>
 
-      <div className="fixed bottom-0 left-0 w-full bg-white border-t z-50">
-        <div className="flex items-center h-14">
-          {/* Chat */}
-          <button className="w-16 h-full flex flex-col items-center justify-center border-r border-gray-200">
+      {/* Bottom Sticky Action Bar */}
+      <div className="fixed bottom-0 left-0 w-full bg-white border-t z-50 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+        <div className="flex items-center h-14 max-w-7xl mx-auto">
+          {/* Chat Button */}
+          <button className="w-16 h-full flex flex-col items-center justify-center border-r border-gray-200 hover:bg-slate-50 transition-colors">
             <TbMessageChatbot size={22} className="text-gray-600" />
-            <span className="text-[10px] text-gray-500">Chat</span>
+            <span className="text-[10px] text-gray-500 mt-0.5">Chat</span>
           </button>
 
-          {/* Buy Now */}
-          <button className="flex-1 h-full bg-cyan-400 text-white font-medium">
-            Buy Now
-          </button>
-
-          {/* Add To Cart */}
+          {/* Buy Now Button (সংশোধিত ও রাউটের সাথে লিঙ্ক করা) */}
           <button
-            onClick={() => handleInstall(id)}
-            className="flex-1 h-full bg-orange-500 text-white font-medium"
+            disabled={isSoldOut}
+            onClick={() => navigate(`/baynaw/${id}`)}
+            className={`flex-1 h-full font-semibold tracking-wide transition-all text-white flex items-center justify-center
+              ${
+                isSoldOut
+                  ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+                  : "bg-cyan-500 hover:bg-cyan-600 active:opacity-90"
+              }`}
           >
-            Add to Cart
+            {isSoldOut ? "Sold Out" : "Buy Now"}
+          </button>
+
+          {/* Add To Cart Button */}
+          <button
+            onClick={() => handleInstall(appId)}
+            disabled={isSoldOut}
+            className={`flex-1 h-full font-semibold tracking-wide transition-all text-white flex items-center justify-center gap-2
+              ${
+                isSoldOut
+                  ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  : "bg-orange-500 hover:bg-orange-600 active:opacity-90"
+              }`}
+          >
+            {!isSoldOut && <MdOutlineShoppingCart size={18} />}
+            {isSoldOut ? "Sold Out" : "Add to Cart"}
           </button>
         </div>
       </div>
