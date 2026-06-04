@@ -5,6 +5,8 @@ import { FaShop } from "react-icons/fa6";
 import { MdAddShoppingCart } from "react-icons/md";
 import { BsShop } from "react-icons/bs";
 import { getStoredApps } from "../../utility/addToDB";
+import { VscAccount } from "react-icons/vsc";
+import { FiShoppingCart } from "react-icons/fi";
 
 const Navbar = () => {
   const [apps, setApps] = useState([]);
@@ -33,10 +35,14 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="navbar bg-base-100 shadow-sm bg-white">
+    <div className="navbar sticky top-0 z-50 bg-base-100 shadow-sm bg-white ">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost lg:hidden text-black"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -66,7 +72,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/InstallationApp">
-                <MdAddShoppingCart /> Install Card
+                <MdAddShoppingCart /> Install Cart
               </Link>
             </li>
           </ul>
@@ -83,31 +89,39 @@ const Navbar = () => {
 
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li>
+          <li className="text-black">
             <Link to="/">
               <BiHome /> Home
             </Link>
           </li>
-          <li>
+          <li className="text-black">
             <Link to="/AllApps">
               <FaShop /> All Product
             </Link>
           </li>
-          <li>
+          <li className="text-black">
             <Link to="/InstallationApp">
-              <MdAddShoppingCart /> Install Card
+              <MdAddShoppingCart /> Install Cart
             </Link>
           </li>
         </ul>
       </div>
 
-      <div className="navbar-end mr-[20px]">
-        <Link className="absolute " to="/InstallationApp">
-          <BsShop />
-        </Link>
-        <span className="relative -top-2 -right-2 bg-green-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-          ({apps.length})
-        </span>
+      <div className="navbar-end mr-[20px] text-black flex items-center gap-4">
+        <div className="text-xl">
+          <VscAccount />
+        </div>
+
+        <div className="relative">
+          <Link to="/InstallationApp" className="text-xl">
+            <FiShoppingCart />
+            {apps.length > 0 && (
+              <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                {apps.length}
+              </span>
+            )}
+          </Link>
+        </div>
       </div>
     </div>
   );

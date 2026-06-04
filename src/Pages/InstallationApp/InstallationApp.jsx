@@ -1,94 +1,97 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import { getStoredApps, removeFromStoreDB } from "../../utility/addToDB";
-import { FaCloudDownloadAlt } from "react-icons/fa";
-import { FaStar } from "react-icons/fa";
+import { RxCross1 } from "react-icons/rx";
 
 const InstallationApp = () => {
-  const [ilstalledAppsData, setInstalledAppsData] = useState([]);
+  const [installedAppsData, setInstalledAppsData] = useState([]);
 
   const data = useLoaderData();
-  // console.log(data);
 
   useEffect(() => {
     const installedApps = getStoredApps();
-    const ConvartedStoredBooks = installedApps.map((id) => parseInt(id));
+    const convertedStoredApps = installedApps.map((id) => parseInt(id));
+
     const storedAppsData = data.filter((app) =>
-      ConvartedStoredBooks.includes(app.id),
+      convertedStoredApps.includes(app.id),
     );
+
     setInstalledAppsData(storedAppsData);
   }, [data]);
 
-  const handelRemoveApp = (id) => {
+  const handleRemoveApp = (id) => {
     removeFromStoreDB(id);
 
-    const updatedInstalledApps = ilstalledAppsData.filter(
+    const updatedInstalledApps = installedAppsData.filter(
       (app) => app.id !== id,
     );
+
     setInstalledAppsData(updatedInstalledApps);
   };
 
   return (
-    <div className="bg-[#f5f5f5] px-3 sm:px-6">
-      <div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-center pt-10">
-          Your Installed Apps
-        </h1>
-        <p className="text-center text-[#627382] mt-3 sm:mt-4 mb-6 sm:mb-7 text-sm sm:text-base">
-          Explore All Trending Apps on the Market developed by us
+    <div className="bg-white min-h-screen px-3 sm:px-6 py-6">
+      <div className="max-w-7xl mx-auto">
+        <p className="mb-6 font-bold text-black text-xl sm:text-2xl">
+          {installedAppsData.length}{" "}
+          {installedAppsData.length === 1 ? "App" : "Apps"} Installed
         </p>
-      </div>
 
-      <div className="flex flex-col items-center max-w-7xl mx-auto">
-        <div className="mt-6 sm:mt-9 w-full">
-          <p className="mb-4 font-bold text-black text-xl sm:text-2xl">
-            {ilstalledAppsData.length} Apps Found
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-4 sm:gap-6 w-full">
-          {ilstalledAppsData.map((app) => (
+        <div className="flex flex-col gap-4">
+          {installedAppsData.map((app) => (
             <div
               key={app.id}
-              className="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-[#ffffff] p-4 rounded-lg shadow-sm w-full gap-4"
+              className="flex items-center justify-between bg-white p-4 rounded-lg shadow-sm"
             >
-              {/* LEFT SIDE */}
-              <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6">
-                <img className="w-20 sm:w-24" src={app.image} alt={app.name} />
+              {/* Left Side */}
+              <Link
+                to={`/AppDetails/${app.id}`}
+                className="flex items-center gap-4"
+              >
+                <div className="flex items-center gap-4">
+                  <img
+                    className="w-24 h-24 sm:w-28 sm:h-28 object-cover rounded-lg"
+                    src={app.image}
+                    alt={app.companyName}
+                  />
 
-                <div className="text-center sm:text-left">
-                  <h2 className="font-semibold text-base sm:text-lg">
-                    {app.title}
-                  </h2>
+                  <div>
+                    <h2 className="font-semibold text-base sm:text-lg text-black">
+                      {app.companyName}
+                    </h2>
 
-                  <div className="flex flex-wrap justify-center sm:justify-start items-center gap-3 sm:gap-4 mt-2 text-sm">
-                    <span className="text-[#00D390] flex items-center gap-1">
-                      <FaCloudDownloadAlt />
-                      {app.downloads}
-                    </span>
-
-                    <span className="flex items-center gap-1 text-[#FF8811]">
-                      <FaStar />
-                      {app.ratingAvg}
-                    </span>
-
-                    <span className="text-[#627382]">{app.size} MB</span>
+                    <p className="text-black mt-1">
+                      <span className="text-2xl font-bold">৳</span>
+                      {app.price}
+                    </p>
                   </div>
                 </div>
-              </div>
+              </Link>
 
-              {/* BUTTON */}
-              <div className="w-full sm:w-auto flex justify-center sm:justify-end">
-                <button
-                  onClick={() => handelRemoveApp(app.id)}
-                  className="btn btn-primary w-full sm:w-auto"
-                >
-                  Uninstall
-                </button>
-              </div>
+              {/* Remove Button */}
+              <button
+                onClick={() => handleRemoveApp(app.id)}
+                className="text-black hover:text-red-700 text-xl"
+              >
+                <RxCross1 />
+              </button>
             </div>
           ))}
         </div>
+
+        {installedAppsData.length === 0 && (
+          <div className="flex flex-col items-center justify-center py-10 sm:py-16 lg:py-20">
+            <img
+              className="w-40 sm:w-56 md:w-72 lg:w-80 h-auto mb-4"
+              src="https://i.ibb.co.com/v4DgmL2r/istockphoto-1433173565-612x612.jpg"
+              alt="Empty Cart"
+            />
+
+            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-600 text-center">
+              No items in your cart!
+            </h2>
+          </div>
+        )}
       </div>
     </div>
   );

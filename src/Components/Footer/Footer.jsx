@@ -4,7 +4,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="footer sm:footer-horizontal  text-base-content p-10 bg-white shadow-lg border-t border-gray-200">
+    <footer className="footer sm:footer-horizontal  text-base-content p-10 bg-white  border-t border-gray-200">
       <div>
         <p className="font-semibold text-black">
           Ponnofy.com offers stylish <br />

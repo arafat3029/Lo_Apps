@@ -3,6 +3,7 @@ import { FaCloudDownloadAlt } from "react-icons/fa";
 import Trendings from "../Trendings/Trendings";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { Link } from "react-router";
+import Footer from "../../Components/Footer/Footer";
 
 const Trending = () => {
   return (
@@ -19,11 +20,12 @@ const Trending = () => {
 
       <Trendings></Trendings>
 
-      <div className="flex justify-center m-10 ">
+      <div className="flex justify-center pt-10 pb-5 ">
         <button className="bg-gradient-to-r from-[#632EE3] to-[#9F62F2] hover:bg-gradient-to-r hover:from-[#9F62F2] hover:to-[#632EE3] text-white font-bold py-2 px-4 rounded">
           <Link to="/AllApps">Show All</Link>
         </button>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

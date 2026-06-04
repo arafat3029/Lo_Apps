@@ -10,14 +10,14 @@ const AllApps = () => {
   return (
     <div>
 
-      <div className="flex flex-col justify-center items-center p-8">
+      {/* <div className="flex flex-col justify-center items-center p-8">
         <h1 className="text-4xl font-bold">Our All Applications</h1>
         <span className="text-lg text-gray-600 mt-4">
           Explore All Apps on the Market developed by us. We code for Millions
         </span>
-      </div>
+      </div> */}
 
-      <div className="flex justify-between items-center px-8 py-4">
+      {/* <div className="flex justify-between items-center px-8 py-4">
 
         <div className="text-xl font-bold">
           <span>({allapps.length}) Apps Found</span>
@@ -45,7 +45,7 @@ const AllApps = () => {
           </label>
         </div>
 
-      </div>
+      </div> */}
     
     <Allappss></Allappss>
 

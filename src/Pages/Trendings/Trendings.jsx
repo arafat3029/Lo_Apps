@@ -30,7 +30,7 @@ const Trendings = () => {
                   alt={app.title}
                 />
 
-                <h2 className="font-semibold mt-3">{app.companyName}</h2>
+                <h2 className="font-semibold text-black mt-3">{app.companyName}</h2>
               </div>
 
               <div className="pl-3">

@@ -7,7 +7,9 @@ import { IoLogoWhatsapp } from "react-icons/io";
 const Baner = () => {
   return (
     <>
+    <div className="bg-white">
         <img className="block w-full max-w-7xl mx-auto h-auto" src="/hero.png" alt="" />
+    </div>
 
       {/* <div className="flex flex-col items-center justify-center text-center pt-20 bg-[#f5f5f5]">
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#001930]">
