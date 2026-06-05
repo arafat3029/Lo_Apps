@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import { getStoredApps, removeFromStoreDB } from "../../utility/addToDB";
 import { RxCross1 } from "react-icons/rx";
+import { FaWhatsapp } from "react-icons/fa"; // react-icons/fa থেকে ইম্পোর্ট করা হয়েছে
 
 const InstallationApp = () => {
   const [installedAppsData, setInstalledAppsData] = useState([]);
@@ -30,7 +31,7 @@ const InstallationApp = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen px-3 sm:px-6 py-6">
+    <div className="bg-white min-h-screen px-3 sm:px-6 py-6 relative"> {/* relative যোগ করা হয়েছে */}
       <div className="max-w-7xl mx-auto">
         <p className="mb-6 font-bold text-black text-xl sm:text-2xl">
           {installedAppsData.length}{" "}
@@ -79,6 +80,7 @@ const InstallationApp = () => {
           ))}
         </div>
 
+        {/* Empty State / No Products Found */}
         {installedAppsData.length === 0 && (
           <div className="flex flex-col items-center justify-center py-10 sm:py-16 lg:py-20">
             <img
@@ -93,6 +95,22 @@ const InstallationApp = () => {
           </div>
         )}
       </div>
+
+      {/* --- WhatsApp Floating Button --- */}
+      <a
+        href="https://wa.me/message/V4L7CRKUKZYDO1" // এখানে কান্ট্রি কোডসহ আপনার নম্বর দিন
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#20ba5a] hover:scale-110 active:scale-95 transition-all duration-300 z-50 flex items-center justify-center group"
+        title="Chat on WhatsApp"
+      >
+        <FaWhatsapp size={28} />
+        
+        {/* Hover Text */}
+        <span className="absolute right-14 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+          Contact Us
+        </span>
+      </a>
     </div>
   );
 };

@@ -1,15 +1,15 @@
 import React from "react";
-import { useLoaderData, useParams, useNavigate } from "react-router"; // useNavigate যুক্ত করা হয়েছে
+import { useLoaderData, useParams, useNavigate } from "react-router"; 
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { addToStoreDB } from "../../utility/addToDB";
 import { TbMessageChatbot } from "react-icons/tb";
-import { TiStarFullOutline } from "react-icons/ti";
-import { TiStarHalfOutline } from "react-icons/ti";
+import { TiStarFullOutline, TiStarHalfOutline } from "react-icons/ti";
+import { FaWhatsapp } from "react-icons/fa"; // react-icons/fa থেকে একবারে ক্লিন ইম্পোর্ট
 
 const AppDetails = () => {
   const { id } = useParams();
   const appId = parseInt(id);
-  const navigate = useNavigate(); // নেভিগেশন ইনিশিয়ালাইজ করা হয়েছে
+  const navigate = useNavigate(); 
 
   const data = useLoaderData();
   const appDetails = data.find((app) => app.id === appId);
@@ -30,10 +30,10 @@ const AppDetails = () => {
     addToStoreDB(targetId);
   };
 
-  // Sold Out চেক করার লজিক (নাম্বার, স্ট্রিং বা আনডিফাইন্ড হ্যান্ডেল করবে)
+  // Sold Out চেক করার লজিক
   const isSoldOut = quantity === 0 || quantity === "0" || !quantity;
 
-  // ডিসকাউন্ট পার্সেন্টেজ হিসাব করার সেফ লজিক
+  // ডিসকাউন্ট পার্সেন্টেজ হিসাব করার লজিক
   const origPrice = parseFloat(WithoutDiscountPrice?.replace(/,/g, "")) || 0;
   const currPrice = parseFloat(price?.replace(/,/g, "")) || 0;
   const hasDiscount = origPrice > currPrice;
@@ -48,7 +48,7 @@ const AppDetails = () => {
   }
 
   return (
-    <div className="bg-white pb-20 px-4 sm:px-6">
+    <div className="bg-white pb-20 px-4 sm:px-6 relative min-h-screen"> {/* relative এবং min-h-screen যোগ করা হয়েছে */}
       <div className="max-w-7xl mx-auto py-4">
         <div className="flex flex-col lg:flex-row items-center gap-10">
           {/* Product Image */}
@@ -142,7 +142,7 @@ const AppDetails = () => {
             <span className="text-[10px] text-gray-500 mt-0.5">Chat</span>
           </button>
 
-          {/* Buy Now Button (সংশোধিত ও রাউটের সাথে লিঙ্ক করা) */}
+          {/* Buy Now Button */}
           <button
             disabled={isSoldOut}
             onClick={() => navigate(`/baynaw/${id}`)}
@@ -172,6 +172,22 @@ const AppDetails = () => {
           </button>
         </div>
       </div>
+
+      {/* --- WhatsApp Floating Button --- */}
+      <a
+        href="https://wa.me/message/V4L7CRKUKZYDO1" // এখানে কান্ট্রি কোডসহ আপনার নম্বর দিন
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-20 right-6 bg-[#25D366] text-white p-3.5 rounded-full shadow-lg hover:bg-[#20ba5a] hover:scale-110 active:scale-95 transition-all duration-300 z-[60] flex items-center justify-center group"
+        title="Chat on WhatsApp"
+      >
+        <FaWhatsapp size={26} />
+        
+        {/* Hover Text */}
+        <span className="absolute right-14 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+          Contact Us
+        </span>
+      </a>
     </div>
   );
 };

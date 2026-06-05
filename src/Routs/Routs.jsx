@@ -9,6 +9,7 @@ import AppDetails from '../Pages/AppDetails/AppDetails';
 import InstallationApp from '../Pages/InstallationApp/InstallationApp';
 import Contact from '../Pages/Contact/Contact';
 import BayNaw from '../Pages/BayNaw/BayNaw';
+import Login from '../Pages/Login/Login';
 
 export const router = createBrowserRouter([
   {
@@ -42,6 +43,11 @@ export const router = createBrowserRouter([
       {
         path: '/baynaw/:id',
         Component: BayNaw,
+        loader: ()=>fetch('/App.json')
+      },
+      {
+        path: '/login',
+        Component: Login,
         loader: ()=>fetch('/App.json')
       }
     ]

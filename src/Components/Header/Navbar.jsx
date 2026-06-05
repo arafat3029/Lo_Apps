@@ -108,9 +108,9 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end mr-[20px] text-black flex items-center gap-4">
-        <div className="text-xl">
-          <VscAccount />
-        </div>
+        <Link to="/Login">
+          <VscAccount size={24} />
+        </Link>
 
         <div className="relative">
           <Link to="/InstallationApp" className="text-xl">

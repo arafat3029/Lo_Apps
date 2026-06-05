@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import { MdOutlineLocalShipping, MdPayment, MdOutlineShoppingBag } from 'react-icons/md';
+import { FaWhatsapp } from 'react-icons/fa'; // react-icons/fa থেকে ইম্পোর্ট করা হয়েছে
 
 const BayNaw = () => {
-  // ১. ইউআরএল থেকে আইডি এবং লোডার থেকে ডেটা নেওয়া হলো
+  // ১. ইউআরএল থেকে আইডি এবং লোডার থেকে ডেটা নেওয়া হলো
   const { id } = useParams();
   const appId = parseInt(id);
   const data = useLoaderData();
 
-  // ২. আইডি অনুযায়ী নির্দিষ্ট প্রোডাক্টের তথ্য খুঁজে বের করা
+  // ২. আইডি অনুযায়ী নির্দিষ্ট প্রোডাক্টের তথ্য খুঁজে বের করা
   const appDetails = data?.find((app) => app.id === appId);
 
   // প্রোডাক্টের তথ্য ডিস্ট্রাকচারিং
@@ -41,7 +42,7 @@ const BayNaw = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-10 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 py-10 px-4 sm:px-6 lg:px-8 relative"> {/* relative যোগ করা হয়েছে */}
       <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden lg:flex">
         
         {/* বাম পাশ: অর্ডার ফর্ম */}
@@ -135,7 +136,7 @@ const BayNaw = () => {
           </form>
         </div>
 
-        {/* ডান পাশ: অর্ডার সামারি (Product Summary - এখানে ভুলগুলো ফিক্স করা হয়েছে) */}
+        {/* ডান পাশ: অর্ডার সামারি */}
         <div className="w-full lg:w-80 bg-slate-50 p-6 sm:p-10 lg:p-6 border-t lg:border-t-0 lg:border-l border-gray-100 flex flex-col justify-between">
           <div>
             <div className="flex items-center gap-2 text-gray-800 font-bold text-lg mb-4">
@@ -172,6 +173,22 @@ const BayNaw = () => {
         </div>
 
       </div>
+
+      {/* --- WhatsApp Floating Button --- */}
+      <a
+        href="https://wa.me/YOUR_PHONE_NUMBER" // এখানে কান্ট্রি কোডসহ আপনার নম্বর দিন
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#20ba5a] hover:scale-110 active:scale-95 transition-all duration-300 z-50 flex items-center justify-center group"
+        title="Chat on WhatsApp"
+      >
+        <FaWhatsapp size={28} />
+        
+        {/* Hover Text */}
+        <span className="absolute right-14 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+          Contact Us
+        </span>
+      </a>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { addToStoreDB } from "../../utility/addToDB";
 import Footer from "../../Components/Footer/Footer";
+import { FaWhatsapp } from "react-icons/fa"; // react-icons/fa থেকে ইম্পোর্ট করা হয়েছে
 
 const Allappss = () => {
   const [allapps, setAllapps] = useState([]);
@@ -50,7 +51,7 @@ const Allappss = () => {
     });
 
   return (
-    <div className="bg-white min-h-screen flex flex-col justify-between">
+    <div className="bg-white min-h-screen flex flex-col justify-between relative"> {/* relative যোগ করা হয়েছে */}
       <div>
         {/* Search & Filter Bar Container */}
         <div className="max-w-7xl mx-auto px-4 pt-6 pb-2">
@@ -232,6 +233,22 @@ const Allappss = () => {
       </div>
 
       <Footer />
+
+      {/* --- WhatsApp Floating Button --- */}
+      <a
+        href="https://wa.me/message/V4L7CRKUKZYDO1" // এখানে কান্ট্রি কোডসহ আপনার নম্বর দিন
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#20ba5a] hover:scale-110 active:scale-95 transition-all duration-300 z-50 flex items-center justify-center group"
+        title="Chat on WhatsApp"
+      >
+        <FaWhatsapp size={28} />
+        
+        {/* Hover Text */}
+        <span className="absolute right-14 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+          Contact Us
+        </span>
+      </a>
     </div>
   );
 };
